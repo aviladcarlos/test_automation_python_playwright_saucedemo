@@ -1,0 +1,10 @@
+scratchpad.py
+/.idea
+/.pytest_cache
+/.venv
+/features/__pycache__
+/pageobjects/__pycache__
+/testdata/__pycache__
+/tests/__pycache__
+/utilities/__pycache__
+/reports
