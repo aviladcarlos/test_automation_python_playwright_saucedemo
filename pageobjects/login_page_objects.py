@@ -1,4 +1,4 @@
-from playwright.sync_api import Page
+from playwright.sync_api import Page, expect
 
 from pageobjects.products_page_objects import ProductsPageObjects
 
@@ -28,3 +28,9 @@ class LoginPageObjects:
         print(f'Clicking "Login" btn')
         self.loginbtn.click()
         return ProductsPageObjects(self.page)
+
+    def verify_user_locked_out_message(self):
+        expect(self.errormsg).to_contain_text("user has been locked out")
+
+    def verify_login_box_visible(self):
+        expect(self.loginbox).to_be_visible()
