@@ -8,5 +8,5 @@ class ProductsPageObjects:
         self.pagetitle = page.locator(".title")
 
     def verify_page_title(self):
-        print(self.pagetitle)
         expect(self.pagetitle).to_have_text("Products")
+        print("User logged in successfully")
