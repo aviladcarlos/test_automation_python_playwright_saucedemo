@@ -1,11 +1,11 @@
 Feature: Login Standard User
 
   Scenario Outline: Verify standard user logins successfully by checking if they landed on the Products page.
-    Given I am a standard user on the login page
+    Given a standard user is on the login page
 
-    When I login to Sauce Demo with <username> and <password>
+    When the standard user logins to Sauce Demo with <username> and <password>
 
-    Then I should see the Products page
+    Then the standard user should see the Products page
 
     Examples:
       | username       | password      |
