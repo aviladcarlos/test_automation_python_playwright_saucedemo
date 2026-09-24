@@ -1,4 +1,4 @@
-from playwright.sync_api import Page, expect
+from playwright.sync_api import Page, expect, Playwright
 
 from pageobjects.products_page_objects import ProductsPageObjects
 
@@ -19,18 +19,25 @@ class LoginPageObjects:
 
     def login(self, username, password):
 
-        print(f'Entering "{username}" for username')
+        print(f'\nEntering "{username}" for username')
         self.usernamefield.fill(username)
 
         print(f'Entering password for "{username}"')
         self.passwordfield.fill(password)
 
         print(f'Clicking "Login" btn')
-        self.loginbtn.click()
+
+        try:
+            self.loginbtn.click(timeout=2000)
+        except PlaywrightTimeoutError:
+            raise AssertionError ("Login took too long, should be less than 2 seconds")
+
         return ProductsPageObjects(self.page)
 
     def verify_user_locked_out_message(self):
         expect(self.errormsg).to_contain_text("user has been locked out")
+        print("User locked out message displayed successfully")
 
     def verify_login_box_visible(self):
         expect(self.loginbox).to_be_visible()
+        print("User remains on login page after locked out message")
