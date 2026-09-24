@@ -10,3 +10,4 @@ test_go_to_page.py
 /utilities/__pycache__
 /reports
 /__pycache__
+/test-results
