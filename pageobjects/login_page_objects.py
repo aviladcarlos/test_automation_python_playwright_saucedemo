@@ -1,4 +1,4 @@
-from playwright.sync_api import Page, expect, Playwright
+from playwright.sync_api import Page, expect, Playwright, TimeoutError as PlaywrightTimeoutError
 
 from pageobjects.products_page_objects import ProductsPageObjects
 
